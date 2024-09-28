@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<style>
+    ::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Background color of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #003366; /* Color of the scrollbar thumb */
+    border-radius: 6px; /* Roundness of the scrollbar thumb */
+    border: 3px solid #f1f1f1; /* Space around the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #0073e6; /* Hover color of the scrollbar thumb */
+}
+</style>
+<body class="bg-gray-100">
+
+    <nav class="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-600 shadow-md border-b-4 border-blue-300 p-4 fixed w-full z-10 top-0">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-white font-bold text-lg uppercase tracking-wider flex items-center">
+                <img src="https://img.freepik.com/free-vector/teamwork-concept-landing-page_52683-20164.jpg?size=626&ext=jpg"
+                    class="rounded-full border-2 border-white w-8 h-8 mr-2" alt="Logo"> College Compass
+            </a>
+            <button class="block lg:hidden text-white focus:outline-none">
+                <span class="material-symbols-outlined">
+                    menu
+                </span>
+            </button>
+            <div class="hidden lg:flex space-x-8 items-center">
+                <div class="text-white text-sm flex items-center">
+                    <span class="material-symbols-outlined mr-2">
+                        call
+                    </span>
+                    1800-3699-4567
+                </div>
+                <div class="text-white text-sm flex items-center">
+                    <span class="material-symbols-outlined mr-2">
+                        mail
+                    </span>
+                    rohitsharma43@outlook.com
+                </div>
+                <div>
+                    <a href="">
+                        <span class="material-symbols-outlined text-white">
+                            contacts_product
+                            </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="flex flex-col lg:flex-row items-center justify-between container mx-auto mt-24 space-y-8 lg:space-y-0 lg:space-x-12">
+        <div class="w-full lg:w-1/2">
+            <img class="rounded-lg shadow-lg w-full max-w-sm mx-auto" src="https://img.freepik.com/free-vector/teamwork-concept-landing-page_52683-20164.jpg?size=626&ext=jpg" alt="Descriptive Image">
+        </div>
+        <div class="w-full lg:w-1/2 bg-white p-8 rounded-lg shadow-lg">
+            <h1 class="text-2xl font-semibold text-gray-800 text-center mb-6">Contact Us</h1>
+            <div class="flex justify-center items-center mb-6">
+                <svg class="w-20 h-20 text-blue-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M20 2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-6 14H8v-4h6v4zm2-6H8v-4h6v4zm-8 0H2v-4h6v4z" />
+                </svg>
+            </div>
+            <form id="contactForm">
+                <div class="mb-4">
+                    <label for="name" class="block text-gray-600 mb-2 font-medium">Name:</label>
+                    <input type="text" id="name" name="name" required
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500">
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-gray-600 mb-2 font-medium">Email:</label>
+                    <input type="email" id="email" name="email" required
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500">
+                </div>
+                <div class="mb-6">
+                    <label for="message" class="block text-gray-600 mb-2 font-medium">Message:</label>
+                    <textarea id="message" name="message" rows="5" required
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 resize-y"></textarea>
+                </div>
+                <button type="submit"
+                    class="bg-blue-600 text-white font-semibold py-3 rounded-lg w-full hover:bg-blue-700 transition duration-300 ease-in-out">Send
+                    Message</button>
+            </form>
+        </div>
+    </div>
+    <footer class="bg-blue-900 text-white py-8 mt-16">
+        <div class="container mx-auto text-center">
+            <div class="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0 lg:space-x-8">
+                <div>
+                    <h2 class="text-lg font-semibold">College Compass</h2>
+                    <p class="text-sm mt-2">Guiding you to your future.</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#" class="hover:text-blue-300">About Us</a>
+                    <a href="#" class="hover:text-blue-300">Contact</a>
+                    <a href="#" class="hover:text-blue-300">Privacy Policy</a>
+                    <a href="#" class="hover:text-blue-300">Terms of Service</a>
+                </div>
+                <div class="text-sm">
+                    <p>© 2024 College Compass. All Rights Reserved.</p>
+                </div>
+            </div>
+            <div class="mt-6 flex justify-center space-x-4">
+                <a href="#" class="text-blue-500 hover:text-white">
+                    <svg class="w-6 h-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M22.675 0h-21.35C.597 0 0 .598 0 1.333v21.333C0 23.403.597 24 1.325 24h11.488v-9.294H9.688v-3.622h3.125V8.413c0-3.1 1.894-4.788 4.66-4.788 1.325 0 2.463.098 2.796.143v3.24h-1.918c-1.505 0-1.796.715-1.796 1.763v2.31h3.59l-.467 3.622h-3.123V24h6.125c.728 0 1.325-.597 1.325-1.334V1.333C24 .597 23.403 0 22.675 0z" />
+                    </svg>
+                </a>
+                <a href="#" class="text-blue-400 hover:text-white">
+                    <svg class="w-6 h-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M24 4.557a9.831 9.831 0 0 1-2.828.775A4.934 4.934 0 0 0 23.337 3.4a9.865 9.865 0 0 1-3.127 1.195 4.916 4.916 0 0 0-8.384 4.482A13.951 13.951 0 0 1 1.671 3.149 4.916 4.916 0 0 0 3.195 9.72 4.902 4.902 0 0 1 .96 9.09v.063A4.916 4.916 0 0 0 4.897 14c-.754.205-1.548.252-2.354.095a4.918 4.918 0 0 0 4.6 3.417 9.86 9.86 0 0 1-6.105 2.105c-.396 0-.787-.023-1.175-.069a13.933 13.933 0 0 0 7.548 2.211c9.057 0 14.01-7.503 14.01-14.01 0-.214-.005-.427-.014-.64A10.012 10.012 0 0 0 24 4.557z" />
+                    </svg>
+                </a>
+                <a href="#" class="text-blue-700 hover:text-white">
+                    <svg class="w-6 h-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M12 2.163c-5.465 0-9.89 4.426-9.89 9.89 0 4.364 3.656 9.163 8.473 9.88.618.115.843-.268.843-.596v-2.167c-3.454.754-4.182-1.646-4.182-1.646-.563-1.43-1.375-1.814-1.375-1.814-1.123-.767.087-.752.087-.752 1.24.087 1.893 1.285 1.893 1.285 1.104 1.893 2.894 1.345 3.601 1.03.114-.8.435-1.346.791-1.657-2.752-.312-5.637-1.375-5.637-6.126 0-1.352.479-2.456 1.26-3.32-.126-.312-.547-1.575.117-3.283 0 0 1.033-.33 3.383 1.26 1.047-.292 2.172-.438 3.289-.444 1.117.006 2.242.152 3.292.444 2.349-1.59 3.38-1.26 3.38-1.26.668 1.708.246 2.971.12 3.283.786.864 1.26 1.968 1.26 3.32 0 4.76-2.892 5.81-5.652 6.114.45.388.841 1.156.841 2.33v3.454c0 .335.228.722.854.598C18.243 21.217 22 16.418 22 12.053c0-5.464-4.425-9.89-9.89-9.89z" />
+                    </svg>
+                </a>
+                <a href="#" class="text-red-600 hover:text-white">
+                    <svg class="w-6 h-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M21.163 8.757a5.805 5.805 0 0 0-4.182-4.182C14.798 4 12 4 12 4s-2.797 0-4.981.575a5.804 5.804 0 0 0-4.182 4.182C2.355 10.94 2.355 12 2.355 12s0 1.797.575 4.98a5.805 5.805 0 0 0 4.182 4.182C9.203 20 12 20 12 20s2.797 0 4.98-.575a5.805 5.805 0 0 0 4.182-4.182C21.645 13.797 21.645 12 21.645 12s0-2.797-.482-4.98zm-8.47 5.645v-5.582l5.582 2.792-5.582 2.79z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        const contactForm = document.getElementById('contactForm');
+
+        contactForm.addEventListener('submit', (event) => {
+            event.preventDefault(); // Prevent default form submission
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // You can use this data to send an email or make an API request
+            console.log('Name:', name);
+            console.log('Email:', email);
+            console.log('Message:', message);
+
+            // Display a success message or perform other actions
+            alert('Your message has been sent!');
+            contactForm.reset(); // Reset the form after submission
+        });
+    </script>
+</body>
+
+</html>

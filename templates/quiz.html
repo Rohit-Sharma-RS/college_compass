@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz for {{ week }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='quiz.css') }}">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+</head>
+
+<body>
+    <div class="navbar">
+        <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand d-flex align-items-center" href="#">
+
+                    College Compass
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('index')}}">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="profile.html">Profile</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="outer-container">
+        <div class="inner-container">
+            <div class="title">
+                <h4 class="heading">Quiz {{ week }}</h4> </div>
+            <div class="form-outer">
+            <form method="POST">
+                {% for idx, question in enumerate(quiz_data['questions']) %}
+                <div class="opt-outer">
+                    <div class="quest"><p>{{ question['question'] }}</p></div>
+                    {% for option in question['options'] %}
+                    <div class="rad" ><label>
+                        <input type="radio" name="question-{{ idx }}" value="{{ option }}">
+                        {{ option }}
+                    </label></div>
+                    {% endfor %}
+                </div>
+
+                {% endfor %}
+                <div class="btn"><button class="btn-sm" type="submit">Submit Quiz</button></div>
+            </form>
+                </div>
+        </div>
+    </div>
+</body>
+
+</html>

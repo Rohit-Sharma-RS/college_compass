@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roadmap</title>
+</head>
+<body>
+    <h2>Week {{ week }}</h2>
+    <ul>
+        {% for subject, topics in data.items() %}
+            <li>
+                <h3>{{ subject }}</h3>
+                <ul>
+                    {% for topic in topics %}
+                        <li>
+                            <strong>{{ topic.Topic }}:</strong> <a href="{{ topic['YouTube Link'] }}">Watch here</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+    <form method="post">
+        <button type="submit">Complete Week and Move to Next</button>
+    </form>
+</body>
+</html>

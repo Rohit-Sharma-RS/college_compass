@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar-custom {
+
+    background: -webkit-linear-gradient(left, #003366, #004080, #0059b3, #0073e6);
+    /* Gradient from left (bright blue) to right (lighter blue) */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    /* Enhanced shadow for depth */
+    border-bottom: 3px solid #597a9e;
+    /* Darker blue bottom border */
+    padding: 8px 15px;
+    /* Reduced padding */
+}
+
+.navbar-custom .navbar-brand {
+    font-size: 1.3rem;
+    /* Reduced font size */
+    font-weight: bold;
+    color: #ffffff;
+    /* White color for brand name */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    /* Slightly reduced letter spacing */
+    position: relative;
+}
+
+.navbar-custom .navbar-brand img {
+    margin-right: 10px;
+    border-radius: 50%;
+    /* Circular logo */
+    border: 2px solid white;
+    /* White border around the logo */
+    width: 30px;
+    /* Reduced logo size */
+    height: 30px;
+    /* Reduced logo size */
+}
+
+.navbar-custom .navbar-brand:before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 5px;
+    width: 20px;
+    background-color: #ffdd57;
+    /* Bright yellow accent */
+    border-radius: 2px;
+}
+
+.navbar-custom .nav-link {
+    color: #ffffff;
+    /* White color for nav links */
+    font-size: 1rem;
+    /* Reduced font size */
+    margin-right: 20px;
+    transition: color 0.3s ease, transform 0.3s ease;
+    position: relative;
+}
+
+.navbar-custom .nav-link:after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: #f0f0ed;
+    /* Bright yellow underline */
+    transition: width 0.3s ease;
+}
+
+.navbar-custom .nav-link:hover {
+    color: #21211f;
+    /* Bright yellow color on hover */
+    transform: translateY(-3px);
+    /* Slight lift effect on hover */
+}
+
+.navbar-custom .nav-link:hover:after {
+    width: 100%;
+    /* Full-width underline on hover */
+}
+
+.navbar-custom .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.card-custom {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Shadow for cards */
+    border-radius: 8px;
+    /* Rounded corners for cards */
+    overflow: hidden;
+    /* Hide any overflow */
+    margin-top: 25%;
+    height: 400px;
+}
+
+.card-custom .card-body {
+    display: flex;
+    align-items: center;
+
+}
+
+.card-custom .card-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+    flex-shrink: 0;
+    /* Prevent image from shrinking */
+}
+
+.card-custom .card-text {
+    flex-grow: 1;
+    /* Allow text to take remaining space */
+}
+
+.card-custom .card-title {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.card-custom .card-description {
+    font-size: 1rem;
+    color: #666;
+}
+
+.navbar {
+    height: 60px;
+}
+
+.outer-container {
+    display: flex;
+    justify-content: center;
+}
+
+.inner-container {
+    width: 500px;
+    height: 550px;
+    margin-top: 50px;
+    border-radius: 15px;
+    border: 2px solid #003366;
+    box-shadow: 3px 3px 3px 3px #003366;
+}
+
+.main-box{
+    height: 100vh;
+    width: 200vh;
+    place-items: center;
+    
+}
+.heading{
+    padding-top: 20px;
+    text-align: center;
+}
+
+.outer-sub{
+    display: flex;
+    height: auto;
+    width: auto;
+    justify-content: center;
+    position: relative;
+    margin: 10px;
+    flex-wrap: wrap;
+    
+
+}
+
+      .sub {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px;
+            max-width: 900px;
+            width: 100%;
+            box-sizing: border-box;
+            transform: translateY(-10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .sub:hover {
+            transform: translateY(0);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .sub h5 {
+            margin: 0;
+            color: #333;
+            font-size: 28px;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 10px;
+            font-weight: 700;
+            animation: fadeIn 1s ease;
+        }
+
+        .sub p {
+            color: #666;
+            line-height: 1.7;
+            margin: 15px 0;
+            font-size: 16px;
+            animation: fadeIn 1.2s ease;
+        }
+
+        .sub iframe {
+            display: block;
+            margin: 15px 0;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .sub iframe:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .sub .youtube-link {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+            display: block;
+            margin: 10px 0;
+        }
+
+        .sub .youtube-link:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+.submit-btn{
+    margin: 40px;
+    padding: 20px;
+    height: 100px;
+    width: 200vh;
+    text-align: center;
+}
+
+.btn{
+    background:-webkit-linear-gradient(left, #003366, #004080, #0059b3, #0073e6); 
+    color: white;
+    height: 40px;
+    border:1px;
+    border-radius: 10px;
+    padding: 5px;
+}
+.sel{
+    height: 40px;
+
+} 
+.sem-change{
+width: 200vh;
+text-align: center;
+border: 1px;
+border-radius: 10px;
+
+}

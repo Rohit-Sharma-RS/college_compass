@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Detailed User Profile Page</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='output.css') }}">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      transition: 1s ease-in-out;
+    }
+
+    /* body{
+        background: -webkit-linear-gradient(left, #003366,#004080,#0059b3
+, #0073e6);
+    } */
+    .dropdown-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+
+    .dropdown-content.open {
+      max-height: 1000px;
+      /* Adjust to a large enough value to accommodate content */
+    }
+
+    .edit-form {
+      display: none;
+    }
+    ::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Background color of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #003366; /* Color of the scrollbar thumb */
+    border-radius: 6px; /* Roundness of the scrollbar thumb */
+    border: 3px solid #f1f1f1; /* Space around the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #0073e6; /* Hover color of the scrollbar thumb */
+}
+  </style>
+  <!-- Tailwind CSS CDN -->
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+  <!-- Font Awesome CDN -->
+  <!-- <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> -->
+</head>
+
+<body class="bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 text-black ">
+
+  <div class="container mx-auto p-6">
+    <div class="md:flex md:space-x-6">
+      <!-- Left Sidebar -->
+      <div class="md:w-1/3 bg-white p-6 rounded-lg">
+        <div class="text-center">
+          <img id="profileImage" class="w-32 h-32 rounded-full object-cover border-4 border-blue-600 mx-auto"
+            src="../static/ritika.jpg" alt="Profile Image">
+          <h2 id="userName" class="text-2xl font-bold mt-4">Ritika Shaw</h2>
+          <p id="userAge" class="text-sm text-black">Age: 20</p>
+          <p id="userGender" class="text-sm text-black">Gender: Female</p>
+          <p id="userCollege" class="text-sm text-black">Techno Main Salt Lake</p>
+          <p id="userStream" class="text-sm text-black">B-Tech</p>
+          <p id="userDepartment" class="text-sm text-black">Computer Science & Engineering (CSE)</p>
+          <p id="userGPA" class="text-sm text-black">GPA: 9.8</p>
+          <p id="userBio" class="mt-4 text-black">I'm passionate about building scalable and performing web and mobile
+            applications that solve real-world problems.</p>
+          <div class="mt-4">
+            <button id="editProfileButton"
+              class="bg-blue-600 hover:bg-blue-400 border-blue-600 text-black py-2 px-4 rounded-full"
+              onclick="toggleEditProfileForm()">
+              Edit profile
+            </button>
+          </div>
+        </div>
+        <div class="mt-6">
+          <p class="flex items-center text-black">
+            <i class="fas fa-envelope mr-2"></i>
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined">
+                mail
+                </span>
+              <span id="userEmail">ritikashaw306@gmail.com</span>
+            </div>
+          </p>
+          <p class="flex items-center text-black mt-2">
+            <i class="fas fa-phone mr-2"></i>
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined">
+                call
+                </span>
+              <span id="userPhone">7439584072</span>
+            </div>
+          </p>
+          <p class="flex items-center text-black mt-2">
+            <!-- GitHub SVG Icon -->
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 0C5.372 0 0 5.372 0 12c0 5.303 3.438 9.8 8.205 11.387.6.111.82-.261.82-.577v-2.257c-3.338.726-4.043-1.416-4.043-1.416-.546-1.385-1.333-1.755-1.333-1.755-1.09-.745.082-.729.082-.729 1.205.085 1.838 1.238 1.838 1.238 1.07 1.832 2.809 1.303 3.495.997.108-.774.42-1.303.763-1.602-2.665-.303-5.466-1.332-5.466-5.93 0-1.31.468-2.381 1.236-3.221-.124-.303-.536-1.523.116-3.176 0 0 1.009-.322 3.301 1.231a11.52 11.52 0 013.003-.404 11.52 11.52 0 013.003.404c2.292-1.553 3.301-1.231 3.301-1.231.653 1.653.241 2.873.118 3.176.769.84 1.236 1.911 1.236 3.221 0 4.609-2.803 5.624-5.475 5.918.432.372.818 1.104.818 2.222v3.293c0 .319.217.694.825.576C20.565 21.8 24 17.303 24 12c0-6.628-5.372-12-12-12z" />
+            </svg>
+            <a href="#" id="userGithubLink" class="hover:underline">github.com/ritikaaa18</a>
+          </p>
+          <p class="flex items-center text-black mt-2">
+            <!-- LeetCode SVG Icon -->
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M13.6 1.2c-.8.3-1.2 0-2-.4-4.3-2.5-8.4 2.8-8.4 2.8-1.4 2-1.8 3.3-2 6.3 0 0 .5 2.2 1.5 3.6 1.1 1.4 2.4 3.5 5.3 3.3 0 0 1.2-.1 2.4-1.4 0 0 .7-.4 2.4-.3 0 0 2.4-.2 3.8-1.8 1.5-1.7 2.5-4.2 2.5-6.5 0 0-.3-1.5-2.3-3-1.9-1.5-3.1-1.3-4.8-.7 0 0-.9.5-1.3.4.1 0 .7-.8 1.7-1 .9-.2 1.5-.5 1.5-.5 2.4-1 4.2 1 4.2 1C20 7.3 21 8.7 21 11c0 2.2-.5 5-2.5 7-2 2-4.5 3-7 3s-5-1-7-3c-2-2-3-4.5-3-7s1-5 3-7 4.5-3 7-3c.8 0 1.5.1 2.3.2.1.1.5.3.9.8.1.2.3.4.4.7.1.2.1.3.1.5s-.1.4-.3.6c-.5.6-1.2.6-1.5.7z" />
+            </svg>
+            <a href="#" id="userLeetcodeLink" class="hover:underline">leetcode.com/ritika_shaw</a>
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Main Content -->
+      <div class="md:w-2/3 mt-6 md:mt-0">
+        <!-- Profile Overview -->
+        <div class="bg-white p-6 rounded-lg mb-6">
+          <h3 class="text-xl font-semibold mb-4">Hi there, I'm Ritika Shaw!</h3>
+          <p>When I code, I rely on:</p>
+          <div class="flex flex-wrap mt-4 space-x-2 space-y-2">
+            <span class="bg-red-500 text-white px-3 py-1 rounded-lg">HTML5</span>
+            <span class="bg-yellow-500 text-white px-3 py-1 rounded-lg">JavaScript</span>
+            <span class="bg-purple-500 text-white px-3 py-1 rounded-lg">Bootstrap</span>
+            <span class="bg-blue-500 text-white px-3 py-1 rounded-lg">React</span>
+            <span class="bg-pink-500 text-white px-3 py-1 rounded-lg">Adobe XD</span>
+            <!-- Add more as needed -->
+          </div>
+        </div>
+
+        <!-- Recent Articles -->
+        <div class="bg-white p-6 rounded-lg mb-6">
+          <h3 class="text-xl font-semibold mb-4">Recent Completed Course</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-blue-400 hover:underline">Getting Started with React: A Beginner's Guide</a>
+            </li>
+            <li><a href="#" class="text-blue-400 hover:underline">Pushing Your First React App to GitHub</a></li>
+            <li><a href="#" class="text-blue-400 hover:underline">The Ultimate Checklist for Starting a React
+                Project</a></li>
+          </ul>
+
+        </div>
+        <!-- Goals and Roadmap Preferences -->
+        <div class="md:w-2/3 mt-6 md:mt-0 space-y-6">
+          <!-- Academic and Career Information -->
+          <div class="bg-white p-6 rounded-lg md:w-[54vw]">
+            <div class="flex justify-between items-center cursor-pointer" onclick="toggleDropdown('academicInfo')">
+              <h3 class="text-xl font-semibold">Academic and Career Information</h3>
+              <div class="svg">
+                <span class="material-symbols-outlined svg">add</span>
+              </div>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div id="academicInfo" class="dropdown-content mt-4">
+              <div id="academicInfoDisplay">
+                <p><strong>Interests:</strong> Artificial Intelligence, Graphic Design, Entrepreneurship</p>
+                <p><strong>Career Goals:</strong> Becoming a Data Scientist, starting a business</p>
+                <p><strong>Hobbies:</strong> Photography, Sports, Writing</p>
+              </div>
+              <div id="academicInfoEdit" class="edit-form">
+                <form id="academicInfoForm">
+                  <label class="block text-sm font-medium">
+                    Interests:
+                    <input type="text" name="interests"
+                      class="mt-1 block w-full bg-white border-blue-600 rounded-md p-2"
+                      value="Artificial Intelligence, Graphic Design, Entrepreneurship">
+                  </label>
+                  <label class="block text-sm font-medium mt-4">
+                    Career Goals:
+                    <input type="text" name="careerGoals"
+                      class="mt-1 block w-full bg-white border-blue-600 rounded-md p-2"
+                      value="Becoming a Data Scientist, starting a business">
+                  </label>
+                  <label class="block text-sm font-medium mt-4">
+                    Hobbies:
+                    <input type="text" name="hobbies" class="mt-1 block w-full bg-white border-blue-600 rounded-md p-2"
+                      value="Photography, Sports, Writing">
+                  </label>
+                  <div class="mt-4">
+                    <button type="button"
+                      class="bg-blue-500 hover:bg-blue-600 border border-blue-600 text-white py-2 px-4 rounded-full"
+                      onclick="saveSection('academicInfo')">Save</button>
+                    <button type="button"
+                      class="bg-blue-500 hover:bg-blue-600 border border-blue-600 text-white py-2 px-4 rounded-full ml-2"
+                      onclick="cancelEdit('academicInfo')">Cancel</button>
+                  </div>
+                </form>
+              </div>
+              <button class="bg-blue-500 hover:bg-blue-600 border-blue-600 text-white py-2 px-4 rounded-full mt-4"
+                onclick="editSection('academicInfo')">
+                Edit
+              </button>
+            </div>
+          </div>
+        
+          <!-- Goals and Roadmap Preferences -->
+          <div class="bg-white p-6 rounded-lg md:w-[54vw]">
+            <div class="flex justify-between items-center cursor-pointer" onclick="toggleDropdown('goalsRoadmap')">
+              <h3 class="text-xl font-semibold">Goals and Roadmap Preferences</h3>
+              <div class="svg">
+                <span class="material-symbols-outlined svg">add</span>
+              </div>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div id="goalsRoadmap" class="dropdown-content mt-4">
+              <div id="goalsRoadmapDisplay">
+                <p><strong>Academic Goals:</strong> Aiming for a 3.8 GPA, completing a research project</p>
+                <p><strong>Career Milestones:</strong> Securing an internship, building a portfolio</p>
+                <p><strong>Roadmap Preferences:</strong> Balanced approach with focus on academics and extracurriculars,
+                  monthly updates</p>
+              </div>
+              <div id="goalsRoadmapEdit" class="edit-form">
+                <form id="goalsRoadmapForm">
+                  <label class="block text-sm font-medium">
+                    Academic Goals:
+                    <input type="text" name="academicGoals"
+                      class="mt-1 block w-full bg-white border border-blue-600 rounded-md p-2"
+                      value="Aiming for a 3.8 GPA, completing a research project">
+                  </label>
+                  <label class="block text-sm font-medium mt-4">
+                    Career Milestones:
+                    <input type="text" name="careerMilestones"
+                      class="mt-1 block w-full bg-white border border-blue-600 rounded-md p-2"
+                      value="Securing an internship, building a portfolio">
+                  </label>
+                  <label class="block text-sm font-medium mt-4">
+                    Roadmap Preferences:
+                    <input type="text" name="roadmapPreferences"
+                      class="mt-1 block w-full bg-yellow-700 text-white border border-blue-600 rounded-md p-2"
+                      value="Balanced approach with focus on academics and extracurriculars, monthly updates">
+                  </label>
+                  <div class="mt-4">
+                    <button type="button"
+                      class="bg-blue-500 hover:bg-blue-600 border border-blue-600 text-white py-2 px-4 rounded-full"
+                      onclick="saveSection('goalsRoadmap')">Save</button>
+                    <button type="button"
+                      class="bg-blue-500 hover:bg-blue-600 border border-blue-600 text-white py-2 px-4 rounded-full ml-2"
+                      onclick="cancelEdit('goalsRoadmap')">Cancel</button>
+                  </div>
+                </form>
+              </div>
+              <button class="bg-blue-500 hover:bg-blue-600 border-blue-600 text-white py-2 px-4 rounded-full mt-4"
+                onclick="editSection('goalsRoadmap')">
+                Edit
+              </button>
+            </div>
+          </div>
+        
+          <!-- Learning Preferences -->
+          <div class="bg-white p-6 rounded-lg md:w-[54vw]">
+            <div class="flex justify-between items-center cursor-pointer" onclick="toggleDropdown('learningPreferences')">
+              <div>
+
+                <h3 class="text-xl font-semibold">Learning Preferences</h3>
+              </div>
+              <div class="svg ">
+                <span class="material-symbols-outlined svg">add</span>
+              </div>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div id="learningPreferences" class="dropdown-content mt-4">
+              <div id="learningPreferencesDisplay">
+                <p><strong>Preferred Learning Style:</strong> Visual</p>
+                <p><strong>Study Habits:</strong> Morning study sessions, group studies, uses Notion for notes</p>
+              </div>
+              <div id="learningPreferencesEdit" class="edit-form">
+                <form id="learningPreferencesForm">
+                  <label class="block text-sm font-medium">
+                    Preferred Learning Style:
+                    <input type="text" name="learningStyle"
+                      class="mt-1 block w-full bg-white border-blue-600 rounded-md p-2" value="Visual">
+                  </label>
+                  <label class="block text-sm font-medium mt-4">
+                    Study Habits:
+                    <input type="text" name="studyHabits"
+                      class="mt-1 block w-full bg-white border-blue-600 rounded-md p-2"
+                      value="Morning study sessions, group studies, uses Notion for notes">
+                  </label>
+                  <div class="mt-4">
+                    <button type="button"
+                      class="bg-blue-500 hover:bg-blue-600 border border-blue-600 text-white py-2 px-4 rounded-full"
+                      onclick="saveSection('learningPreferences')">Save</button>
+                    <button type="button"
+                      class="bg-blue-500 hover:bg-blue-600 border border-blue-600 text-white py-2 px-4 rounded-full ml-2"
+                      onclick="cancelEdit('learningPreferences')">Cancel</button>
+                  </div>
+                </form>
+              </div>
+              <button class="bg-blue-500 hover:bg-blue-600 border-blue-600 text-white py-2 px-4 rounded-full mt-4"
+                onclick="editSection('learningPreferences')">
+                Edit
+              </button>
+            </div>
+          </div>
+        
+          <!-- Internships and Work Experience -->
+          <div class="bg-white p-6 rounded-lg md:w-[54vw]">
+            <div class="flex justify-between items-center cursor-pointer" onclick="toggleDropdown('internshipsWorkExperience')">
+              <h3 class="text-xl font-semibold">Internships and Work Experience</h3>
+              <div class="svg">
+                <span class="material-symbols-outlined svg">add</span>
+              </div>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div id="internshipsWorkExperience" class="dropdown-content mt-4">
+              <div id="internshipsWorkExperienceDisplay">
+                <p><strong>Internship:</strong> Software Developer Intern at XYZ Corp (June 2023 - Aug 2023)</p>
+                <p><strong>Projects:</strong> Developed a mobile app for ABC Inc.</p>
+              </div>
+              <div id="internshipsWorkExperienceEdit" class="edit-form">
+                <form id="internshipsWorkExperienceForm">
+                  <label class="block text-sm font-medium">
+                    Internship:
+                    <input type="text" name="internship"
+                      class="mt-1 block w-full bg-white border-blue-600 rounded-md p-2"
+                      value="Software Developer Intern at XYZ Corp (June 2023 - Aug 2023)">
+                  </label>
+                  <label class="block text-sm font-medium mt-4">
+                    Projects:
+                    <input type="text" name="projects" class="mt-1 block w-full bg-white border-blue-600 rounded-md p-2"
+                      value="Developed a mobile app for ABC Inc.">
+                  </label>
+                  <div class="mt-4">
+                    <button type="button"
+                      class="bg-blue-500 hover:bg-blue-600 border border-blue-600 text-white py-2 px-4 rounded-full"
+                      onclick="saveSection('internshipsWorkExperience')">Save</button>
+                    <button type="button"
+                      class="bg-blue-500 hover:bg-blue-600 border border-blue-600 text-white py-2 px-4 rounded-full ml-2"
+                      onclick="cancelEdit('internshipsWorkExperience')">Cancel</button>
+                  </div>
+                </form>
+              </div>
+              <button class="bg-blue-500 hover:bg-blue-600 border-blue-600 text-white py-2 px-4 rounded-full mt-4"
+                onclick="editSection('internshipsWorkExperience')">
+                Edit
+              </button>
+            </div>
+          </div>
+        </div>
+        
+
+      </div>
+
+    </div>
+    <div class="p-2">
+
+      <div class="bg-white p-6 rounded-lg">
+        <h3 class="text-xl font-semibold mb-4">My Streak</h3>
+        <div class="grid grid-cols-3 gap-4 text-center">
+          <div>
+            <p class="text-2xl font-bold">06</p>
+            <p class="text-black">Course completed</p>
+          </div>
+          <div>
+            <p class="text-2xl font-bold">2</p>
+            <p class="text-black">Current Streak</p>
+          </div>
+          <div>
+            <p class="text-2xl font-bold">21</p>
+            <p class="text-black">Longest Streak</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- GitHub Stats -->
+
+
+  <!-- Edit Profile Modal -->
+  <!-- Edit Profile Modal -->
+<div id="editProfileModal" class="fixed inset-0 items-center justify-center bg-gray-900 bg-opacity-50 flex hidden">
+  <div class="bg-white p-6 rounded-lg w-96 max-h-screen overflow-y-auto"> <!-- Added max-h-screen and overflow-y-auto -->
+    <h2 class="text-2xl font-bold mb-4">Edit Profile</h2>
+    <form id="editProfileForm">
+      <label class="block text-sm font-medium">
+        Name:
+        <input style="border: 2px solid blue;" type="text" id="editName"
+          class="mt-1 block w-full bg-white border-2 border-rose-500 rounded-md p-2">
+      </label>
+      <label class="block text-sm font-medium mt-4">
+        Age:
+        <input style="border: 2px solid blue;" type="number" id="editAge"
+          class="mt-1 block w-full bg-white border-blue-600 rounded-md p-2">
+      </label>
+      <label class="block text-sm font-medium mt-4">
+        Gender:
+        <select style="border: 2px solid blue;" id="editGender"
+          class="mt-1 block w-full bg-white border-blue-600 rounded-md p-2">
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+      </label>
+      <label class="block text-sm font-medium mt-4">
+        College:
+        <input style="border: 2px solid blue;" type="text" id="editCollege"
+          class="mt-1 block w-full bg-white border-blue-600 rounded-md p-2">
+      </label>
+      <label class="block text-sm font-medium mt-4">
+        Stream:
+        <input style="border: 2px solid blue;" type="text" id="editStream"
+          class="mt-1 block w-full bg-white border-blue-600 rounded-md p-2">
+      </label>
+      <label class="block text-sm font-medium mt-4">
+        Department:
+        <input style="border: 2px solid blue;" type="text" id="editDepartment"
+          class="mt-1 block w-full bg-white border-blue-600 rounded-md p-2">
+      </label>
+      <label class="block text-sm font-medium mt-4">
+        GPA:
+        <input style="border: 2px solid blue;" type="text" id="editGPA"
+          class="mt-1 block w-full bg-white border-blue-600 rounded-md p-2">
+      </label>
+      <label class="block text-sm font-medium mt-4">
+        Bio:
+        <textarea style="border: 2px solid blue;" id="editBio"
+          class="mt-1 block w-full bg-white border-blue-600 rounded-md p-2"></textarea>
+      </label>
+      <div class="mt-4">
+        <button type="button" class="bg-blue-500 hover:bg-blue-600 border-blue-700 text-black py-2 px-4 rounded-full"
+          onclick="saveProfile()">Save</button>
+        <button type="button"
+          class="bg-blue-600 hover:bg-blue-600 border-blue-700 text-black py-2 px-4 rounded-full ml-2"
+          onclick="closeEditProfileModal()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+  </div>
+  <footer class="bg-blue-900 text-white py-8 mt-16">
+    <div class="container mx-auto text-center">
+        <div class="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0 lg:space-x-8">
+            <div>
+                <h2 class="text-lg font-semibold">College Compass</h2>
+                <p class="text-sm mt-2">Guiding you to your future.</p>
+            </div>
+            <div class="flex space-x-4">
+                <a href="{{url_for('index')}}" class="hover:text-blue-300">Home</a>
+                <a href="{{url_for('contact')}}" class="hover:text-blue-300">Contact</a>
+                <a href="{{url_for('logout')}}" class="hover:text-blue-300">Logout</a>
+
+            </div>
+            <div class="text-sm">
+                <p>© 2024 College Compass. All Rights Reserved.</p>
+            </div>
+        </div>
+        <div class="mt-6 flex justify-center space-x-4">
+            <a href="https://www.meta.com/" class="text-blue-500 hover:text-white">
+                <svg class="w-6 h-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M22.675 0h-21.35C.597 0 0 .598 0 1.333v21.333C0 23.403.597 24 1.325 24h11.488v-9.294H9.688v-3.622h3.125V8.413c0-3.1 1.894-4.788 4.66-4.788 1.325 0 2.463.098 2.796.143v3.24h-1.918c-1.505 0-1.796.715-1.796 1.763v2.31h3.59l-.467 3.622h-3.123V24h6.125c.728 0 1.325-.597 1.325-1.334V1.333C24 .597 23.403 0 22.675 0z" />
+                </svg>
+            </a>
+            <a href="https://www.x.com/" class="text-blue-400 hover:text-white">
+                <svg class="w-6 h-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M24 4.557a9.831 9.831 0 0 1-2.828.775A4.934 4.934 0 0 0 23.337 3.4a9.865 9.865 0 0 1-3.127 1.195 4.916 4.916 0 0 0-8.384 4.482A13.951 13.951 0 0 1 1.671 3.149 4.916 4.916 0 0 0 3.195 9.72 4.902 4.902 0 0 1 .96 9.09v.063A4.916 4.916 0 0 0 4.897 14c-.754.205-1.548.252-2.354.095a4.918 4.918 0 0 0 4.6 3.417 9.86 9.86 0 0 1-6.105 2.105c-.396 0-.787-.023-1.175-.069a13.933 13.933 0 0 0 7.548 2.211c9.057 0 14.01-7.503 14.01-14.01 0-.214-.005-.427-.014-.64A10.012 10.012 0 0 0 24 4.557z" />
+                </svg>
+            </a>
+            <a href="https://github.com" class="text-blue-700 hover:text-white">
+                <svg class="w-6 h-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M12 2.163c-5.465 0-9.89 4.426-9.89 9.89 0 4.364 3.656 9.163 8.473 9.88.618.115.843-.268.843-.596v-2.167c-3.454.754-4.182-1.646-4.182-1.646-.563-1.43-1.375-1.814-1.375-1.814-1.123-.767.087-.752.087-.752 1.24.087 1.893 1.285 1.893 1.285 1.104 1.893 2.894 1.345 3.601 1.03.114-.8.435-1.346.791-1.657-2.752-.312-5.637-1.375-5.637-6.126 0-1.352.479-2.456 1.26-3.32-.126-.312-.547-1.575.117-3.283 0 0 1.033-.33 3.383 1.26 1.047-.292 2.172-.438 3.289-.444 1.117.006 2.242.152 3.292.444 2.349-1.59 3.38-1.26 3.38-1.26.668 1.708.246 2.971.12 3.283.786.864 1.26 1.968 1.26 3.32 0 4.76-2.892 5.81-5.652 6.114.45.388.841 1.156.841 2.33v3.454c0 .335.228.722.854.598C18.243 21.217 22 16.418 22 12.053c0-5.464-4.425-9.89-9.89-9.89z" />
+                </svg>
+            </a>
+            <a href="https://www.youtube.com/" class="text-red-600 hover:text-white">
+                <svg class="w-6 h-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M21.163 8.757a5.805 5.805 0 0 0-4.182-4.182C14.798 4 12 4 12 4s-2.797 0-4.981.575a5.804 5.804 0 0 0-4.182 4.182C2.355 10.94 2.355 12 2.355 12s0 1.797.575 4.98a5.805 5.805 0 0 0 4.182 4.182C9.203 20 12 20 12 20s2.797 0 4.98-.575a5.805 5.805 0 0 0 4.182-4.182C21.645 13.797 21.645 12 21.645 12s0-2.797-.482-4.98zm-8.47 5.645v-5.582l5.582 2.792-5.582 2.79z" />
+                </svg>
+            </a>
+        </div>
+    </div>
+</footer>
+  
+  
+
+  <script>
+    // Toggle Edit Profile Modal
+    function toggleEditProfileForm() {
+      const modal = document.getElementById('editProfileModal');
+      modal.classList.toggle('hidden');
+      document.querySelector(".svg").innerHTML = innerHTML + 'close'
+      console.log(document.querySelector(".svg").innerHTML)
+    }
+
+    function closeEditProfileModal() {
+      const modal = document.getElementById('editProfileModal');
+      modal.classList.add('hidden');
+      console.log(document.querySelector(".svg").innerHTML)
+    }
+
+    function saveProfile() {
+      const name = document.getElementById('editName').value;
+      const age = document.getElementById('editAge').value;
+      const gender = document.getElementById('editGender').value;
+      const college = document.getElementById('editCollege').value;
+      const stream = document.getElementById('editStream').value;
+      const department = document.getElementById('editDepartment').value;
+      const gpa = document.getElementById('editGPA').value;
+      const bio = document.getElementById('editBio').value;
+
+      // Update profile data
+      document.getElementById('userName').innerText = name;
+      document.getElementById('userAge').innerText = 'Age: ' + age;
+      document.getElementById('userGender').innerText = 'Gender: ' + gender;
+      document.getElementById('userCollege').innerText = college;
+      document.getElementById('userStream').innerText = stream;
+      document.getElementById('userDepartment').innerText = department;
+      document.getElementById('userGPA').innerText = 'GPA: ' + gpa;
+      document.getElementById('userBio').innerText = bio;
+
+      closeEditProfileModal();
+    }
+
+    function toggleDropdown(id) {
+      const content = document.getElementById(id);
+      content.classList.toggle('open');
+    }
+
+    function editSection(id) {
+      document.getElementById(id + 'Display').style.display = 'none';
+      document.getElementById(id + 'Edit').style.display = 'block';
+    }
+
+    function saveSection(id) {
+      const form = document.getElementById(id + 'Form');
+      const formData = new FormData(form);
+
+      document.getElementById(id + 'Display').innerHTML = `
+        <p><strong>Interests:</strong> ${formData.get('interests')}</p>
+        <p><strong>Career Goals:</strong> ${formData.get('careerGoals')}</p>
+        <p><strong>Hobbies:</strong> ${formData.get('hobbies')}</p>
+      `;
+
+      document.getElementById(id + 'Display').style.display = 'block';
+      document.getElementById(id + 'Edit').style.display = 'none';
+    }
+
+    function cancelEdit(id) {
+      document.getElementById(id + 'Display').style.display = 'block';
+      document.getElementById(id + 'Edit').style.display = 'none';
+    }
+    function saveProfile() {
+      const name = document.getElementById('editName').value;
+      const age = document.getElementById('editAge').value;
+      const gender = document.getElementById('editGender').value;
+      const college = document.getElementById('editCollege').value;
+      const stream = document.getElementById('editStream').value;
+      const department = document.getElementById('editDepartment').value;
+      const gpa = document.getElementById('editGPA').value;
+      const bio = document.getElementById('editBio').value;
+
+      // Update profile information on the page
+      document.getElementById('userName').innerText = name;
+      document.getElementById('userAge').innerText = `Age: ${age}`;
+      document.getElementById('userGender').innerText = `Gender: ${gender}`;
+      document.getElementById('userCollege').innerText = college;
+      document.getElementById('userStream').innerText = stream;
+      document.getElementById('userDepartment').innerText = department;
+      document.getElementById('userGPA').innerText = `GPA: ${gpa}`;
+      document.getElementById('userBio').innerText = bio;
+
+      // Close the modal
+      closeEditProfileModal();
+    }
+  </script>
+</body>
+
+</html>
+
+</script>
+</body>
+
+</html>

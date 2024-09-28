@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='landing.css') }}">
+</head>
+<body>
+
+    <div class="btn">
+    {%if not(current_user.is_authenticated)%}
+    <a href="{{ url_for('login') }}">
+        <button class="logbtn" type="button">Log In</button>
+    </a>
+        {%endif%}
+        {%if current_user.is_authenticated%}
+        <a href="{{ url_for('logout') }}">
+        <button class="logbtn" type="button">Log Out</button>
+        </a>
+        {%endif%}
+
+    <a href="{{ url_for('signup') }}">
+        <button class="signbtn" type="button">Sign Up</button>
+    </a>
+</div>
+
+    <!-- slider -->
+
+    <div class="slider">
+        <!-- list Items -->
+        <div class="list">
+            <div class="item active">
+                <img src="https://c1.wallpaperflare.com/preview/86/468/54/student-people-latin-school.jpg">
+                <div class="content">
+                    
+                    <h2>Welcome to<span> College Compass</span></h2>
+                    <p>
+                        Empowering Students: Tailored guidance based on your interests, academic stream, and career aspirations.
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="https://c0.wallpaperflare.com/preview/98/823/733/business-communication-concept-illustration.jpg">
+                <div class="content">
+                    
+                    <h2>Your Path, Your Journey</h2>
+                    <p>
+                        Get a customized roadmap that aligns with your goals and passions
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="../static/3rd.jpg">
+                <div class="content">
+                    
+                    <h2>Navigate Your College Experience</h2>
+                    <p>
+                        From academics to extracurriculars, internships to career planning, we’re here to help you succeed.
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="../static/4th.jpg">
+                <div class="content">
+                    
+                    <h2>Maximize Your Potential</h2>
+                    <p>
+                        Discover the best opportunities, resources, and strategies to excel in your chosen field.
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="../static/5th.jpg">
+                <div class="content">
+                    
+                    <h2>Start Today</h2>
+                    <p>
+                        Build your profile, set your goals, and let us guide you every step of the way.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- button arrows -->
+        <div class="arrows">
+            <button id="prev"><</button>
+            <button id="next">></button>
+        </div>
+        <!-- thumbnail -->
+        <div class="thumbnail">
+            <div class="item active">
+                <img src="https://c1.wallpaperflare.com/preview/86/468/54/student-people-latin-school.jpg">
+                <div class="content">
+                    
+                </div>
+            </div>
+            <div class="item">
+                <img src="https://c0.wallpaperflare.com/preview/98/823/733/business-communication-concept-illustration.jpg">
+                <div class="content">
+                   
+                </div>
+            </div>
+            <div class="item">
+                <img src="../static/3rd.jpg">
+                <div class="content">
+                    
+                </div>
+            </div>
+            <div class="item">
+                <img src="../static/4th.jpg">
+                <div class="content">
+                
+                </div>
+            </div>
+            <div class="item">
+                <img src="../static/5th.jpg">
+                <div class="content">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container about-us">
+        <div class="text-content">
+            <h1>About Us</h1>
+            <p class="about">
+                College Compass is your personalized guide to academic success. Tailored to your interests and career goals, it offers curated course recommendations and clear roadmaps for your educational journey. Empowering students to make informed decisions, College Compass ensures you stay on track towards achieving your future aspirations.
+            </p>
+        </div>
+        <div class="image-content">
+            <img src="https://www.shutterstock.com/image-vector/cartoon-illustration-boy-who-climbing-600nw-59468170.jpg" alt="About Us Image">
+        </div>
+    </div>
+    
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h2>College Compass</h2>
+                    <p>Guiding you to your future.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">About Us</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+                <div class="footer-copy">
+                    <p>© 2024 College Compass. All Rights Reserved.</p>
+                </div>
+            </div>
+            <div class="footer-social">
+                <a href="#" class="social-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M22.675 0h-21.35C.597 0 0 .598 0 1.333v21.333C0 23.403.597 24 1.325 24h11.488v-9.294H9.688v-3.622h3.125V8.413c0-3.1 1.894-4.788 4.66-4.788 1.325 0 2.463.098 2.796.143v3.24h-1.918c-1.505 0-1.796.715-1.796 1.763v2.31h3.59l-.467 3.622h-3.123V24h6.125c.728 0 1.325-.597 1.325-1.334V1.333C24 .597 23.403 0 22.675 0z" />
+                    </svg>
+                </a>
+                <a href="#" class="social-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M24 4.557a9.831 9.831 0 0 1-2.828.775A4.934 4.934 0 0 0 23.337 3.4a9.865 9.865 0 0 1-3.127 1.195 4.916 4.916 0 0 0-8.384 4.482A13.951 13.951 0 0 1 1.671 3.149 4.916 4.916 0 0 0 3.195 9.72 4.902 4.902 0 0 1 .96 9.09v.063A4.916 4.916 0 0 0 4.897 14c-.754.205-1.548.252-2.354.095a4.918 4.918 0 0 0 4.6 3.417 9.86 9.86 0 0 1-6.105 2.105c-.396 0-.787-.023-1.175-.069a13.933 13.933 0 0 0 7.548 2.211c9.057 0 14.01-7.503 14.01-14.01 0-.214-.005-.427-.014-.64A10.012 10.012 0 0 0 24 4.557z" />
+                    </svg>
+                </a>
+                <a href="#" class="social-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M12 2.163c-5.465 0-9.89 4.426-9.89 9.89 0 4.364 3.656 9.163 8.473 9.88.618.115.843-.268.843-.596v-2.167c-3.454.754-4.182-1.646-4.182-1.646-.563-1.43-1.375-1.814-1.375-1.814-1.123-.767.087-.752.087-.752 1.24.087 1.893 1.285 1.893 1.285 1.104 1.893 2.894 1.345 3.601 1.03.114-.8.435-1.346.791-1.657-2.752-.312-5.637-1.375-5.637-6.126 0-1.352.479-2.456 1.26-3.32-.126-.312-.547-1.575.117-3.283 0 0 1.033-.33 3.383 1.26 1.047-.292 2.172-.438 3.289-.444 1.117.006 2.242.152 3.292.444 2.349-1.59 3.38-1.26 3.38-1.26.668 1.708.246 2.971.12 3.283.786.864 1.26 1.968 1.26 3.32 0 4.76-2.892 5.81-5.652 6.114.45.388.841 1.156.841 2.33v3.454c0 .335.228.722.854.598C18.243 21.217 22 16.418 22 12.053c0-5.464-4.425-9.89-9.89-9.89z" />
+                    </svg>
+                </a>
+                <a href="#" class="social-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M21.163 8.757a5.805 5.805 0 0 0-4.182-4.182C14.798 4 12 4 12 4s-2.797 0-4.981.575a5.804 5.804 0 0 0-4.182 4.182C2.355 10.94 2.355 12 2.355 12s0 1.797.575 4.98a5.805 5.805 0 0 0 4.182 4.182C9.203 20 12 20 12 20s2.797 0 4.98-.575a5.805 5.805 0 0 0 4.182-4.182C21.645 13.797 21.645 12 21.645 12s0-2.797-.482-4.98zm-8.47 5.645v-5.582l5.582 2.792-5.582 2.79z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+    <script src="{{ url_for('static', filename='landing.js') }}"></script>
+</body>
+</html>

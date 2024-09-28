@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semester Roadmap</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='roadmap.css') }}">
+
+</head>
+<body>
+    <div class="navbar">
+        <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand d-flex align-items-center" href="#">
+
+                    College Compass
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url_for('profile')}}">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url_for('logout')}}">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
+    <div class="main-box">
+       <div class="heading">
+        <h3>Roadmap for {{ week }}</h3>
+       </div>
+
+         {% if week_data %} 
+        <div class="outer-sub">
+            
+                 {% for subject, topics in week_data.items() %} 
+    <div class="sub">
+        <h5>{{ subject }}</h5>
+
+        {% for topic in topics %}
+            <p>{{ topic.Topic }}</p>
+
+            {# Handle both standard and shortened YouTube URLs #}
+            {% set youtube_link = topic['YouTube Link'] %}
+
+            {% if 'youtu.be' in youtube_link %}
+                {# Handle shortened URLs like https://youtu.be/... #}
+                {% set video_id = youtube_link.split('/')[-1].split('?')[0] %}
+                {% set embed_url = "https://www.youtube.com/embed/" + video_id %}
+            {% elif 'watch?v=' in youtube_link %}
+                {# Handle standard URLs like https://www.youtube.com/watch?v=... #}
+                {% set embed_url = youtube_link.replace("watch?v=", "embed/").split('&')[0] %}
+            {% endif %}
+
+            <iframe src="{{ embed_url }}" height="200" width="300" frameborder="0" allowfullscreen></iframe>
+
+            <p>{{ topic['YouTube Link'] }}</p>
+        {% endfor %}
+
+    </div>
+{% endfor %}
+            
+        </div>
+
+            <div class="submit-btn">
+                <form method="post">
+                    <button type="submit" value="" name="start_quiz" class="btn">Complete the Week and Start Quiz</button>
+                </form>
+            </div>
+         {% endif %}
+     <div>
+        
+     <div class="sem-change">
+        <form method="POST" action="{{ url_for('set_semester') }}">
+            <label for="semester_code" ><strong>Change Semester:</strong></label>
+            <select name="semester_code" id="semester_code" class="sel">
+    <option value="sem_1" {% if current_semester == 'sem_1' %}selected{% endif %}>sem_1</option>
+    <option value="sem_2" {% if current_semester == 'sem_2' %}selected{% endif %}>sem_2</option>
+    <option value="sem_3" {% if current_semester == 'sem_3' %}selected{% endif %}>sem_3</option>
+    <option value="sem_4" {% if current_semester == 'sem_4' %}selected{% endif %}>sem_4</option>
+    <option value="sem_5" {% if current_semester == 'sem_5' %}selected{% endif %}>sem_5</option>
+    <option value="sem_6" {% if current_semester == 'sem_6' %}selected{% endif %}>sem_6</option>
+    <option value="sem_7" {% if current_semester == 'sem_7' %}selected{% endif %}>sem_7</option>
+    <option value="sem_8" {% if current_semester == 'sem_8' %}selected{% endif %}>sem_8</option>
+</select>
+            <button type="submit" class="btn">Set Semester</button>
+        </form>
+     </div>
+     </div>
+    </div>
+</body>
+</html>

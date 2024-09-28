@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semester Roadmap</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+</head>
+<body>
+    <h1>Semester Roadmap Generator</h1>
+    <form method="POST">
+        <label for="semester">Semester Code (e.g., 'sem2'):</label>
+        <input type="text" name="semester" id="semester" required>
+
+        <label for="week">Week (e.g., 'Week 1'):</label>
+        <input type="text" name="week" id="week" required>
+
+        <button type="submit">Get Roadmap</button>
+    </form>
+    <div id="resultdiv">
+    {% if result %}
+        <h2 class="h2class">Roadmap for {{ semester_code }}, {{ week }}:</h2>
+        {% if result == "No data available for this week." or result == "Data for this semester is not available." %}
+            <p class="result">{{ result }}</p>
+        {% else %}
+            <ul class="result">
+                {% for subject, topics in result.items() %}
+                    <li class="result"><strong>{{ subject }}</strong>
+                        <ul class="result">
+                            {% for topic in topics %}
+                                <li>
+                                    {{ topic['Topic'] }}
+                                    <a href="{{ topic['YouTube Link'] }}" target="_blank">Watch Video</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endif %}
+    </div>
+</body>
+</html>
+<--dont use-->

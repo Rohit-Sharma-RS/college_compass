@@ -1,0 +1,161 @@
+.navbar-custom {
+    background: linear-gradient(to right, #1E42B6, #4260c2);
+    /* Gradient from left (bright blue) to right (lighter blue) */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    /* Enhanced shadow for depth */
+    border-bottom: 3px solid #597a9e;
+    /* Darker blue bottom border */
+    padding: 8px 15px;
+    /* Reduced padding */
+}
+
+.navbar-custom .navbar-brand {
+    font-size: 1.3rem;
+    /* Reduced font size */
+    font-weight: bold;
+    color: #ffffff;
+    /* White color for brand name */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    /* Slightly reduced letter spacing */
+    position: relative;
+}
+
+.navbar-custom .navbar-brand img {
+    margin-right: 10px;
+    border-radius: 50%;
+    /* Circular logo */
+    border: 2px solid white;
+    /* White border around the logo */
+    width: 30px;
+    /* Reduced logo size */
+    height: 30px;
+    /* Reduced logo size */
+}
+
+.navbar-custom .navbar-brand:before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 5px;
+    width: 20px;
+    background-color: #ffdd57;
+    /* Bright yellow accent */
+    border-radius: 2px;
+}
+
+.navbar-custom .nav-link {
+    color: #ffffff;
+    /* White color for nav links */
+    font-size: 1rem;
+    /* Reduced font size */
+    margin-right: 20px;
+    transition: color 0.3s ease, transform 0.3s ease;
+    position: relative;
+}
+
+.navbar-custom .nav-link:after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: #f0f0ed;
+    /* Bright yellow underline */
+    transition: width 0.3s ease;
+}
+
+.navbar-custom .nav-link:hover {
+    color: #21211f;
+    /* Bright yellow color on hover */
+    transform: translateY(-3px);
+    /* Slight lift effect on hover */
+}
+
+.navbar-custom .nav-link:hover:after {
+    width: 100%;
+    /* Full-width underline on hover */
+}
+
+.navbar-custom .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.card-custom {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Shadow for cards */
+    border-radius: 8px;
+    /* Rounded corners for cards */
+    overflow: hidden;
+    /* Hide any overflow */
+    margin-top: 25%;
+    height: 400px;
+}
+
+.card-custom .card-body {
+    display: flex;
+    align-items: center;
+
+}
+
+.card-custom .card-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+    flex-shrink: 0;
+    /* Prevent image from shrinking */
+}
+
+.card-custom .card-text {
+    flex-grow: 1;
+    /* Allow text to take remaining space */
+}
+
+.card-custom .card-title {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.card-custom .card-description {
+    font-size: 1rem;
+    color: #666;
+}
+
+#header {
+    margin-top: 60px;
+    height: 100px;
+    padding: 30px;
+   
+   
+}
+
+#content {
+    height: auto; 
+    padding: 10px;
+}
+
+#btn {
+    height: 100px;
+    padding: 10px;
+    
+}
+#button{
+    background-color: #1E42B6;
+    color: white;
+    height: 40px;
+    width: 100px;
+}
+
+.resultdiv{
+height="auto"
+color="blue"
+}
+
+.result{
+color="red"
+}
